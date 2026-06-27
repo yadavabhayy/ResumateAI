@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Recruiter Review</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>👨‍💼 Recruiter Review</h1>
+
+<div class="skill-box">
+    <div id="feedbackContent"></div>
+</div>
+
+<a href="results.html" class="view-btn">
+← Back to Dashboard
+</a>
+
+</div>
+
+<script>
+
+const data =
+JSON.parse(
+localStorage.getItem("analysisData")
+);
+
+const feedbackLines =
+data.recruiterFeedback.split(". ");
+
+let html = "<ul>";
+
+feedbackLines.forEach(line => {
+    if(line.trim() !== ""){
+        html += `<li>${line}</li>`;
+    }
+});
+
+html += "</ul>";
+
+document.getElementById("feedbackContent").innerHTML =
+html;
+
+</script>
+
+</body>
+</html>

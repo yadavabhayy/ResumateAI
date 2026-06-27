@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Resume Health Report</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>📋 Resume Health Report</h1>
+
+<div class="skill-box">
+    <div id="healthContent"></div>
+</div>
+
+<a href="results.html" class="view-btn">
+← Back to Dashboard
+</a>
+
+</div>
+
+<script>
+
+const data =
+JSON.parse(
+localStorage.getItem("analysisData")
+);
+
+const healthItems =
+data.healthReport.split("\n");
+
+let html = "<ul>";
+
+healthItems.forEach(item => {
+    if(item.trim() !== ""){
+        html += `<li>${item}</li>`;
+    }
+});
+
+html += "</ul>";
+
+document.getElementById("healthContent").innerHTML =
+html;
+
+</script>
+
+</body>
+</html>
